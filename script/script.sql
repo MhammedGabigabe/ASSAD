@@ -6,7 +6,7 @@ CREATE TABLE utilisateurs (
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     role ENUM('Visiteur', 'Guide', 'Admin'),
-    is_active BOOLEAN DEFAULT TRUE,
+    is_active BOOLEAN DEFAULT false,
     mdp_hash VARCHAR(255) NOT NULL
 );
 
