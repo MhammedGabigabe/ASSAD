@@ -15,19 +15,18 @@
                 <i class="fas fa-arrow-left text-sm text-amber-400"></i> ASSAD ZOO
             </a>
             <div class="flex items-center gap-4">
-                <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/d4/Logo_CAN_2025.webp/433px-Logo_CAN_2025.webp.png" alt="Logo CAN 2025" class="h-10">
+                <img src="" alt="Logo CAN 2025" class="h-10">
             </div>
         </div>
     </nav>
 
     <header class="relative h-[60vh] flex items-end">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1614027164847-1b2809eb189d?auto=format&fit=crop&w=1500&q=80" alt="Lion Majestueux" class="w-full h-full object-cover">
+            <img src="https://media.ouest-france.fr/v1/pictures/MjAyNTEyYTA2MTNjZGM0NTAzYWIyNTcwMjRmZjkxNThmMmQ4NjI?width=1260&height=708&focuspoint=50%2C25&cropresize=1&client_id=bpeditorial&sign=6ed4b0711c642e0885d94d9b354117f16a7a058d05864bfc407ae0e2179db8ac" alt="Lion Majestueux" class="w-full h-full">
             <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 pb-12">
-            <h1 class="text-6xl font-black text-white mb-2">ASAAD</h1>
-            <p class="text-amber-400 text-2xl font-bold tracking-widest uppercase">Le Roi de l'Atlas</p>
+
         </div>
     </header>
 
@@ -72,7 +71,7 @@
                     <h2 class="text-3xl font-bold text-emerald-900 mb-6">Galerie Royale</h2>
                     <div class="grid grid-cols-2 gap-4">
                         <img src="https://images.unsplash.com/photo-1552410260-0fd9b577afa6?auto=format&fit=crop&w=600&q=80" class="rounded-2xl h-64 w-full object-cover shadow-md" alt="Portrait Lion">
-                        <img src="https://images.unsplash.com/photo-1547327132-5d208988636d?auto=format&fit=crop&w=600&q=80" class="rounded-2xl h-64 w-full object-cover shadow-md" alt="Lion rugissant">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Jielbeaumadier_lionne_de_latlas_madrid_2014.jpeg/250px-Jielbeaumadier_lionne_de_latlas_madrid_2014.jpeg" class="rounded-2xl h-64 w-full object-cover shadow-md" alt="Lion rugissant">
                     </div>
                 </section>
             </div>
@@ -80,7 +79,7 @@
             <div class="lg:col-span-1">
                 <div class="bg-emerald-900 text-white p-8 rounded-3xl shadow-xl sticky top-24">
                     <div class="text-center mb-8">
-                        <img src="https://www.cafonline.com/media/reunx5mc/afcon-2025-logo.png" alt="CAN 2025" class="w-32 mx-auto mb-4 bg-white p-2 rounded-xl">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH71P-DrpSxVCcx4pw3lDaCBw_ZYubTf7JLg&s" alt="CAN 2025" class="w-32 mx-auto mb-4 bg-white p-2 rounded-xl">
                         <h3 class="text-2xl font-bold uppercase tracking-tighter">Maroc 2025</h3>
                         <p class="text-emerald-400">Coupe d'Afrique des Nations</p>
                     </div>
