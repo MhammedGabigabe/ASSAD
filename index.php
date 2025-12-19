@@ -1,3 +1,10 @@
+<?php
+
+include("code_source/controllers/gestion_habitat.php");
+include("code_source\controllers\gestion_animal.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -82,18 +89,24 @@
                         <label class="block text-sm font-semibold text-emerald-800 mb-1">Habitat</label>
                         <select name="habitat" class="w-full p-2 rounded-lg border focus:ring-2 focus:ring-emerald-500">
                             <option value="">Tous les habitats</option>
-                            <option value="savane">Savane</option>
-                            <option value="montagne">Montagne de l'Atlas</option>
-                            <option value="foret">Forêt Tropicale</option>
+                            <?php
+
+                                foreach($liste_habitats as $habitat){
+                                    echo "<option value='{$habitat['id_habitat']}'> {$habitat['nom']}</option>";
+                                }
+                            
+                            ?>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-emerald-800 mb-1">Pays Africain</label>
                         <select name="pays" class="w-full p-2 rounded-lg border focus:ring-2 focus:ring-emerald-500">
                             <option value="">Tous les pays</option>
-                            <option value="maroc">Maroc 🇲🇦</option>
-                            <option value="senegal">Sénégal 🇸🇳</option>
-                            <option value="afrique_sud">Afrique du Sud 🇿🇦</option>
+                            <?php
+                                foreach($liste_pays_animaux as $pays){
+                                    echo "<option value='{$pays['id_animal']}'> {$pays['pays_origine']}</option>";
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="flex items-end">
@@ -105,7 +118,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="group cursor-pointer">
                     <div class="relative overflow-hidden rounded-2xl mb-3">
-                        <img src="https://images.unsplash.com/photo-1511097060268-3e3a59ffde05?auto=format&fit=crop&w=400&q=80" alt="Gazelle" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                        <img src="https://s3.animalia.bio/animals/photos/full/original/spiral-horned-antelope.webp" alt="Gazelle" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
                         <div class="absolute bottom-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-emerald-800">MAROC</div>
                     </div>
                     <h3 class="font-bold text-lg text-gray-800">Gazelle de l'Atlas</h3>
