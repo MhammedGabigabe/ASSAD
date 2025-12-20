@@ -1,5 +1,5 @@
 <?php
-require_once "../database/config.php";
+require_once "code_source/database/config.php";
 
 $result = mysqli_query($cnx, "SELECT DISTINCT`pays_origine` FROM `animaux`");
 $liste_pays_animaux = [];

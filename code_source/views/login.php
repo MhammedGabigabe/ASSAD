@@ -15,10 +15,10 @@ require_once "../controllers/login.php";
 
     <nav class="bg-emerald-900 text-white shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.php" class="text-2xl font-bold tracking-wider flex items-center gap-2">
+            <a href="../../index.php" class="text-2xl font-bold tracking-wider flex items-center gap-2">
                 <i class="fas fa-paw"></i> ASSAD ZOO
             </a>
-            <a href="index.php" class="text-emerald-200 hover:text-amber-400 transition">
+            <a href="../../index.php" class="text-emerald-200 hover:text-amber-400 transition">
                 <i class="fas fa-home mr-1"></i> Accueil
             </a>
         </div>
@@ -40,7 +40,7 @@ require_once "../controllers/login.php";
                 </div>
             </div>
 
-            <form action="process_login.php" method="POST" class="p-8 space-y-6">
+            <form method="POST" class="p-8 space-y-6">
                 
                 <div class="space-y-4">
                     <div>

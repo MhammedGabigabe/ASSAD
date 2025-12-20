@@ -25,8 +25,8 @@ require_once "code_source/controllers/gestion_animal.php";
             <div class="hidden md:flex space-x-6">
                 <a href="#animals" class="hover:text-amber-400 transition">Animaux</a>
                 <a href="#tours" class="hover:text-amber-400 transition">Visites Guidées</a>
-                <a href="login.php" class="bg-amber-500 px-4 py-2 rounded-lg font-semibold hover:bg-amber-600 transition">Connexion</a>
-                <a href="register.php" class="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-emerald-800 transition">S'inscrire</a>
+                <a href="code_source/views/login.php" class="bg-amber-500 px-4 py-2 rounded-lg font-semibold hover:bg-amber-600 transition">Connexion</a>
+                <a href="code_source/views/register.php" class="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-emerald-800 transition">S'inscrire</a>
             </div>
         </div>
     </nav>
