@@ -1,3 +1,7 @@
+<?php
+require_once "../controllers/register_utilisateur.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,7 +29,7 @@
                 <p class="text-emerald-200 mt-2">Rejoignez l'aventure du Zoo Virtuel CAN 2025</p>
             </div>
 
-            <form action="process_register.php" method="POST" class="p-8 space-y-5">
+            <form method="POST" class="p-8 space-y-5">
                 
                 <div class="grid grid-cols-2 gap-4 mb-6">
                     <label class="cursor-pointer">
@@ -76,14 +80,14 @@
                     </div>
                 </div>
 
-                <div class="flex items-start gap-2 pt-2">
+                <!-- <div class="flex items-start gap-2 pt-2">
                     <input type="checkbox" required class="mt-1 h-4 w-4 text-emerald-600 border-gray-300 rounded">
                     <label class="text-xs text-gray-600">
                         J'accepte les conditions d'utilisation et la politique de protection des données de la faune sauvage.
                     </label>
-                </div>
+                </div> -->
 
-                <button type="submit" class="w-full bg-amber-500 text-emerald-950 font-bold py-3 rounded-xl hover:bg-amber-400 transition transform hover:scale-[1.02] shadow-md">
+                <button type="submit" name="register" class="w-full bg-amber-500 text-emerald-950 font-bold py-3 rounded-xl hover:bg-amber-400 transition transform hover:scale-[1.02] shadow-md">
                     S'inscrire maintenant
                 </button>
             </form>

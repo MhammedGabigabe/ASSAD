@@ -1,5 +1,5 @@
 <?php
-include('code_source/database/config.php');
+require_once "../database/config.php";
 
 
 $result = mysqli_query($cnx, "SELECT * FROM habitats;");

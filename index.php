@@ -1,7 +1,7 @@
 <?php
 
-include("code_source/controllers/gestion_habitat.php");
-include("code_source\controllers\gestion_animal.php");
+require_once "code_source/controllers/gestion_habitat.php";
+require_once "code_source/controllers/gestion_animal.php";
 
 ?>
 
@@ -53,7 +53,7 @@ include("code_source\controllers\gestion_animal.php");
                     <h2 class="text-3xl font-bold text-emerald-900 italic">Explorez le Zoo avec nos Guides</h2>
                     <p class="text-gray-600">Recherchez une visite virtuelle adaptée à votre emploi du temps de supporter.</p>
                 </div>
-                <form action="index.php#tours" method="GET" class="flex w-full md:w-96 shadow-sm">
+                <form method="POST" class="flex w-full md:w-96 shadow-sm">
                     <input type="text" name="search_tour" placeholder="Rechercher une visite (ex: Savane, Oiseaux...)" class="w-full px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     <button class="bg-emerald-700 text-white px-6 py-2 rounded-r-lg hover:bg-emerald-800 transition">
                         <i class="fas fa-search"></i>
@@ -84,7 +84,7 @@ include("code_source\controllers\gestion_animal.php");
             <div class="bg-emerald-50 p-6 rounded-2xl mb-10 border border-emerald-100">
                 <h2 class="text-2xl font-bold text-emerald-900 mb-6">Nos Animaux d'Afrique et d'ailleurs</h2>
                 
-                <form action="index.php#animals" method="GET" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <form method="POST" action="#animals" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-sm font-semibold text-emerald-800 mb-1">Habitat</label>
                         <select name="habitat" class="w-full p-2 rounded-lg border focus:ring-2 focus:ring-emerald-500">
@@ -92,7 +92,8 @@ include("code_source\controllers\gestion_animal.php");
                             <?php
 
                                 foreach($liste_habitats as $habitat){
-                                    echo "<option value='{$habitat['id_habitat']}'> {$habitat['nom']}</option>";
+                                    $selected = (isset($_POST['habitat']) && $_POST['habitat'] == $habitat['id_habitat']) ? 'selected' : '';
+                                    echo "<option value='{$habitat['id_habitat']}' $selected> {$habitat['nom']}</option>";
                                 }
                             
                             ?>
@@ -104,27 +105,39 @@ include("code_source\controllers\gestion_animal.php");
                             <option value="">Tous les pays</option>
                             <?php
                                 foreach($liste_pays_animaux as $pays){
-                                    echo "<option value='{$pays['id_animal']}'> {$pays['pays_origine']}</option>";
+                                    $selected = (isset($_POST['pays']) && $_POST['pays'] == $pays['pays_origine']) ? 'selected' : '';
+                                    echo "<option value='{$pays['pays_origine']}' $selected> {$pays['pays_origine']}</option>";
                                 }
                             ?>
                         </select>
                     </div>
                     <div class="flex items-end">
-                        <button type="submit" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold hover:bg-emerald-700 transition">Filtrer</button>
+                        <button type="submit" name="btn_filtrer" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold hover:bg-emerald-700 transition">Filtrer</button>
                     </div>
                 </form>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl mb-3">
-                        <img src="https://s3.animalia.bio/animals/photos/full/original/spiral-horned-antelope.webp" alt="Gazelle" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
-                        <div class="absolute bottom-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-emerald-800">MAROC</div>
-                    </div>
-                    <h3 class="font-bold text-lg text-gray-800">Gazelle de l'Atlas</h3>
-                    <p class="text-sm text-gray-500 italic text-emerald-600">Gazella cuvieri</p>
-                </div>
-                </div>
+
+                <?php
+
+                     foreach($liste_animaux as $animal) {
+                       
+                       echo "
+                            <div class='group cursor-pointer'>
+                                <div class='relative overflow-hidden rounded-2xl mb-3'>
+                                    <img src='{$animal['image']}' alt='{$animal['nom']}' class='w-full h-64 object-cover group-hover:scale-110 transition duration-500'>
+                                    <div class='absolute bottom-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-emerald-800'>{$animal['pays_origine']}</div>
+                                </div>
+                                <h3 class='font-bold text-lg text-gray-800'>{$animal['nom']}</h3>
+                                <p class='text-sm text-gray-500 italic text-emerald-600'>{$animal['espece']}</p>
+                            </div>
+                        "; 
+                     }          
+                        
+                ?>
+
+            </div>
         </section>
 
     </main>
