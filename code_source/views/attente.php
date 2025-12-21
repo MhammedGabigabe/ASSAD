@@ -17,7 +17,7 @@
         <div class="bg-amber-50 p-4 rounded-xl text-amber-800 text-sm italic mb-8">
             "Nous célébrons la faune africaine avec rigueur et passion."
         </div>
-        <a href="index.php" class="inline-block bg-emerald-800 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition">
+        <a href="../../index.php" class="inline-block bg-emerald-800 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition">
             Retour à l'accueil
         </a>
     </div>

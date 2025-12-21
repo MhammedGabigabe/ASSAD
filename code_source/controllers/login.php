@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         header("Location: ../views/admin_dashboard.php");
                         break;
                     case 'Guide':
-                        header("Location: ../views/guide_dashboard.php");
+                        header("Location: ../views/attente.php");
                         break;
                     default:
                         header("location: ../../index.php");                      
