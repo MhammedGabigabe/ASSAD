@@ -19,10 +19,10 @@ require_once "../controllers/gestion_utilisateur.php";
         <nav class="space-y-4">
             <a href="admin_dashboard.php" class="block p-3 hover:bg-emerald-800 rounded-lg"><i class="fas fa-chart-line mr-2"></i> Statistiques</a>
             <a href="admin_users.php" class="block p-3 bg-emerald-700 rounded-lg transition"><i class="fas fa-users mr-2"></i> Utilisateurs</a>
-            <a href="admin_animals.php" class="block p-3 hover:bg-emerald-800 rounded-lg transition"><i class="fas fa-hippo mr-2"></i> Animaux</a>
-            <a href="admin_habitats.php" class="block p-3 hover:bg-emerald-800 rounded-lg transition"><i class="fas fa-mountain mr-2"></i> Habitats</a>
+            <a href="gestion_animal.php" class="block p-3 hover:bg-emerald-800 rounded-lg transition"><i class="fas fa-hippo mr-2"></i> Animaux</a>
+            <a href="gestion_habitats.php" class="block p-3 hover:bg-emerald-800 rounded-lg transition"><i class="fas fa-mountain mr-2"></i> Habitats</a>
             <hr class="border-emerald-800 my-4">
-            <a href="logout.php" class="block p-3 text-amber-400 hover:text-white"><i class="fas fa-sign-out-alt mr-2"></i> Déconnexion</a>
+            <a href="../controllers/logout.php" class="block p-3 text-amber-400 hover:text-white"><i class="fas fa-sign-out-alt mr-2"></i> Déconnexion</a>
         </nav>
     </aside>
 

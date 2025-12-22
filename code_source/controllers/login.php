@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 header("Location: ../views/login.php");
                 exit;
             }else{
-                //session_regenerate_id(true);
+                
                 $_SESSION['id_utilisateur'] = $user['id_utilisateur'];
                 $_SESSION['nom'] = $user['nom'];
                 $_SESSION['role'] = $user['role'];
@@ -32,8 +32,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         header("Location: ../views/admin_dashboard.php");
                         break;
                     case 'Guide':
-                        header("Location: ../views/attente.php");
-                        break;
+                        if($user['is_approuve'] == 0){
+                            header("Location: ../views/attente.php");
+                            break;
+                        }else{
+                            header("Location: ../views/guide_dashboard.php");
+                            break;
+                        }    
                     default:
                         header("location: ../../index.php");                      
                 }
