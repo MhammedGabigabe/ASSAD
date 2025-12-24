@@ -51,12 +51,57 @@ require_once "../controllers/visiteguide.php";
                         <i class="fas fa-calendar"></i> Total
                     </p>
                 </div>
-                <a href="guide_ajouter_visite.php" 
+                <button id="openModal" 
                 class="bg-emerald-700 text-white px-4 py-2 rounded-lg shadow hover:bg-emerald-800 transition flex items-center gap-2 text-sm">
                 <i class="fas fa-plus"></i> Créer visite
-                </a>
+                </button>
             </div>
 
+        <!-- POPUP MODAL ajout -->
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-2xl w-96 p-6 relative shadow-lg">
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Ajouter une nouvelle visite</h3>
+                <form method="POST" class="space-y-4">
+                    <input type="text" name="titre" placeholder="Titre de la visite" class="w-full border p-2 rounded-lg">
+                    <textarea name="description" placeholder="Description" class="w-full border p-2 rounded-lg"></textarea>
+                    <input type="datetime-local" name="date_heure" class="w-full border p-2 rounded-lg">
+                    <input type="number" name="duree" placeholder="Durée (minutes)" class="w-full border p-2 rounded-lg">
+                    <input type="text" name="langue" placeholder="Langue" class="w-full border p-2 rounded-lg">
+                    <input type="number" name="capacite_max" placeholder="Capacité maximale" class="w-full border p-2 rounded-lg">
+                    <input type="number" name="prix" placeholder="Prix (DH)" class="w-full border p-2 rounded-lg">
+                    <button type="submit" name="Ajouter" 
+                            class="bg-emerald-700 text-white px-4 py-2 rounded-lg shadow hover:bg-emerald-800 w-full">
+                        Ajouter la visite
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- POPUP MODAL modifier -->
+        <div id="modal_modifier" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-2xl w-96 p-6 relative shadow-lg">
+                <button id="closeModal_modifier" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Modifier une visite</h3>
+                <form method="POST" class="space-y-4">
+                    <input type="text" name="titre" value="<?= $visite_a_modifier['titre'] ?? '' ?>" class="w-full border p-2 rounded-lg">
+                    <textarea name="description" class="w-full border p-2 rounded-lg"> <?= $visite_a_modifier['description'] ?? '' ?> </textarea>
+                    <input type="datetime-local" name="date_heure" value="<?= $visite_a_modifier['date_heure'] ?? '' ?>"  class="w-full border p-2 rounded-lg">
+                    <input type="number" name="duree" value="<?= $visite_a_modifier['duree'] ?? '' ?>" class="w-full border p-2 rounded-lg">
+                    <input type="text" name="langue" value="<?= $visite_a_modifier['langue'] ?? '' ?>" class="w-full border p-2 rounded-lg">
+                    <input type="number" name="capacite_max" value="<?= $visite_a_modifier['capacite_max'] ?? '' ?>" class="w-full border p-2 rounded-lg">
+                    <input type="number" name="prix" value="<?= $visite_a_modifier['prix'] ?? '' ?>" class="w-full border p-2 rounded-lg">
+                    <button type="submit" name="appliquerModi"  value="<?= $visite_a_modifier['id_visite']?>"
+                            class="bg-emerald-700 text-white px-4 py-2 rounded-lg shadow hover:bg-emerald-800 w-full">
+                        Modifier la visite
+                    </button>
+                </form>
+            </div>
+        </div>
         
 
         <!-- VISITES LIST -->
@@ -102,7 +147,7 @@ require_once "../controllers/visiteguide.php";
                         <div class="text-right">
                             <p class="text-2xl font-black text-emerald-900"><?=$visite['prix'] ?> DH</p>
                             <div class="flex justify-end gap-2 mt-2">
-                                <button type="submit" class="text-blue-600 hover:bg-blue-50 p-2 rounded-lg" value="<?=$visite['id_visite'] ?> " name="Modifier">
+                                <button type="submit" class="text-blue-600 hover:bg-blue-50 p-2 rounded-lg" value="<?=$visite['id_visite'] ?> " name="modifier">
                                     <i class="fas fa-edit"></i>
                                 </button>
                                 <button type="submit" class="text-red-600 hover:bg-red-50 p-2 rounded-lg" value="<?=$visite['id_visite'] ?> " name="Supprimer">
@@ -116,5 +161,43 @@ require_once "../controllers/visiteguide.php";
             </div>
         </form>
     </main>
+
+    <script>
+        const openModal = document.getElementById('openModal');
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
+
+        openModal.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        const modal_modifier = document.getElementById('modal_modifier');
+        const closeModal_modifier = document.getElementById('closeModal_modifier');
+
+        closeModal_modifier.addEventListener('click', () => {
+            modal_modifier.classList.add('hidden');
+        });
+
+        modal_modifier.addEventListener('click', (e) => {
+            if(e.target === modal_modifier) {
+                modal_modifier.classList.add('hidden');
+            }
+        });
+    </script>
+    <?php if ($visite_a_modifier): ?>
+        <script>
+            document.getElementById('modal_modifier').classList.remove('hidden');
+        </script>
+    <?php endif; ?>
 </body>
 </html>
